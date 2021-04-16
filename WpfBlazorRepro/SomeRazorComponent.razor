@@ -1,0 +1,11 @@
+﻿<h3>SomeRazorComponent</h3>
+
+Hi, the count is @count!
+
+<button @onclick="Increment">Increment</button>
+
+@code {
+    int count;
+
+    void Increment() => count++;
+}

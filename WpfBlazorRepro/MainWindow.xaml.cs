@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,17 @@ namespace WpfBlazorRepro
     {
         public MainWindow()
         {
+            var serviceCollection = new ServiceCollection();
+            serviceCollection.AddBlazorWebView();
+            Resources.Add("services", serviceCollection.BuildServiceProvider());
+
             InitializeComponent();
         }
     }
+
+    // ---------------------------------------------
+    // UNCOMMENT THIS LINE AND EVERYTHING WILL WORK:
+    // ---------------------------------------------
+
+    //partial class SomeRazorComponent { }
 }
